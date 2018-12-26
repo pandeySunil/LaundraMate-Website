@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LoundraMateDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="City" Type="varchar" MaxLength="255" />
+    <Property Name="AddressLine1" Type="varchar" MaxLength="255" />
+    <Property Name="AddressLine2" Type="varchar" MaxLength="255" />
+    <Property Name="PinCode" Type="bigint" />
+    <Property Name="State" Type="varchar" MaxLength="255" />
+    <Property Name="Area" Type="varchar" MaxLength="255" />
+    <Property Name="Name" Type="varchar" MaxLength="255" />
+    <Property Name="MobileNo" Type="bigint" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="EmailId" Type="varchar" MaxLength="255" />
+    <Property Name="UserName" Type="varchar" MaxLength="255" />
+    <Property Name="Password" Type="varchar" MaxLength="255" />
+    <Property Name="MobileNo" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="255" />
+    <Property Name="MobileNo" Type="bigint" />
+    <Property Name="EmailId" Type="varchar" MaxLength="255" />
+    <Property Name="Password" Type="varchar" MaxLength="255" />
+    <Property Name="Address" Type="varchar" MaxLength="255" />
+    <Property Name="Balance" Type="bigint" />
+  </EntityType>
+  <EntityType Name="DeviceCode">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="CustomerId" Type="int" />
+    <Property Name="DeviceCode" Type="varchar" MaxLength="255" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <EntityType Name="OrderTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="CustId" Type="int" />
+    <Property Name="OrderType" Type="varchar" MaxLength="255" />
+    <Property Name="CustAddressId" Type="int" />
+    <Property Name="StoreId" Type="int" />
+    <Property Name="OrderStaus" Type="varchar" MaxLength="255" />
+    <Property Name="PickupTime" Type="time" Precision="7" />
+    <Property Name="DeliveryTime" Type="time" Precision="7" />
+    <Property Name="OrderDate" Type="date" />
+    <Property Name="OrderCost" Type="decimal" Precision="9" Scale="6" />
+    <Property Name="OrderDesc" Type="varchar" MaxLength="255" />
+    <Property Name="OrderWt" Type="decimal" Precision="9" Scale="6" />
+    <Property Name="PaymentMode" Type="varchar" MaxLength="255" />
+    <Property Name="MachineCode" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Stores">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Longitude" Type="decimal" Precision="9" Scale="6" />
+    <Property Name="AddressLine1" Type="varchar" MaxLength="255" />
+    <Property Name="AddressLine2" Type="varchar" MaxLength="255" />
+    <Property Name="City" Type="varchar" MaxLength="255" />
+    <Property Name="State" Type="varchar" MaxLength="255" />
+    <Property Name="Area" Type="varchar" MaxLength="255" />
+    <Property Name="ContactNo" Type="bigint" />
+    <Property Name="Latitude" Type="decimal" Precision="9" Scale="6" />
+    <Property Name="PinCode" Type="bigint" />
+  </EntityType>
+  <EntityType Name="WashinMachine">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="MachineId" Type="varchar" MaxLength="255" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="CustomerId" Type="int" />
+  </EntityType>
+  <EntityContainer Name="LoundraMateDbModelStoreContainer">
+    <EntitySet Name="Address" EntityType="Self.Address" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeviceCode" EntityType="Self.DeviceCode" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderTable" EntityType="Self.OrderTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Stores" EntityType="Self.Stores" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WashinMachine" EntityType="Self.WashinMachine" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

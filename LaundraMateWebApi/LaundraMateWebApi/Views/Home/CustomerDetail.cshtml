@@ -1,0 +1,125 @@
+﻿@model LaundraMateWebApi.ViewModels.CustomerDetailsModel
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Customer Detail</title>
+</head>
+<body>
+    <div>
+       
+        <table>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.SelectedCustomer.UserName)</th>
+                <td>@Html.DisplayFor(model => model.SelectedCustomer.UserName)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.SelectedCustomer.EmailId)</th>
+                <td>@Html.DisplayFor(model => model.SelectedCustomer.EmailId)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.SelectedCustomer.Balance)</th>
+                <td>@Html.DisplayFor(model => model.SelectedCustomer.Balance)</td>
+            </tr>
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.SelectedCustomer.MobileNo)</th>
+                <td>@Html.DisplayFor(model => model.SelectedCustomer.MobileNo)</td>
+            </tr>
+
+
+
+        </table>
+        
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit") |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+    <table>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.orderHistories[0].CustAddress)</th>
+            <th>@Html.DisplayNameFor(model => model.orderHistories[0].PaymentMode)</th>
+            <th>@Html.DisplayNameFor(model => model.orderHistories[0].OrderDate)</th>
+            <th>@Html.DisplayNameFor(model => model.orderHistories[0].OrderDesc)</th>
+            <th>@Html.DisplayNameFor(model => model.orderHistories[0].Orderstatus)</th>
+            <th>@Html.DisplayNameFor(model => model.orderHistories[0].OrderWeight)</th>
+            <th>@Html.DisplayNameFor(model => model.orderHistories[0].MachineCode)</th>
+            <th>@Html.DisplayNameFor(model => model.orderHistories[0].StoreAddress)</th>
+
+        </tr>
+        @foreach (var item in Model.orderHistories)
+        {
+
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CustAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentMode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderDesc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Orderstatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderWeight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MachineCode)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.StoreAddress)
+            </td>
+
+           
+
+        </tr>
+        }
+
+    </table>
+   
+</body>
+</html>
+<style>
+    body {
+        background: rgba(179,220,237,1);
+        background: -moz-linear-gradient(left, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 49%, rgba(176,221,237,1) 96%, rgba(188,224,238,1) 100%);
+        background: -webkit-gradient(left top, right top, color-stop(0%, rgba(179,220,237,1)), color-stop(49%, rgba(41,184,229,1)), color-stop(96%, rgba(176,221,237,1)), color-stop(100%, rgba(188,224,238,1)));
+        background: -webkit-linear-gradient(left, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 49%, rgba(176,221,237,1) 96%, rgba(188,224,238,1) 100%);
+        background: -o-linear-gradient(left, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 49%, rgba(176,221,237,1) 96%, rgba(188,224,238,1) 100%);
+        background: -ms-linear-gradient(left, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 49%, rgba(176,221,237,1) 96%, rgba(188,224,238,1) 100%);
+        background: linear-gradient(to right, rgba(179,220,237,1) 0%, rgba(41,184,229,1) 49%, rgba(176,221,237,1) 96%, rgba(188,224,238,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b3dced', endColorstr='#bce0ee', GradientType=1 );
+    }
+    table, tr, td {
+        border: 1px solid black;
+        color: mediumvioletred;
+        font-weight: bolder;
+        margin: 0 auto;
+    }
+    td {
+        width:30px;
+    }
+        th {
+            border: 2px solid black;
+        }
+
+    .wrapper {
+        background-color: aqua;
+    }
+</style>
+

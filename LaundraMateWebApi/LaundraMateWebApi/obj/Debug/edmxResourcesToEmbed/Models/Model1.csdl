@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LoundraMateDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Address">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="AddressLine1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="AddressLine2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PinCode" Type="Int64" />
+    <Property Name="Area" Type="String" Unicode="false" FixedLength="false" MaxLength="255" />
+    <Property Name="Name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MobileNo" Type="Int64" />
+    <Property Name="Active" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MobileNo" Type="Int64" />
+    <Property Name="EmailId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Balance" Type="Int64" />
+  </EntityType>
+  <EntityType Name="WashinMachine">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="MachineId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="CustomerId" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="LoundraMateDbEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Addresses" EntityType="Self.Address" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="WashinMachines" EntityType="Self.WashinMachine" />
+    <EntitySet Name="Stores" EntityType="LoundraMateDbModel.Store" />
+    <EntitySet Name="OrderTables" EntityType="LoundraMateDbModel.OrderTable" />
+    <EntitySet Name="Admins" EntityType="LoundraMateDbModel.Admin" />
+    <EntitySet Name="DeviceCodes" EntityType="LoundraMateDbModel.DeviceCode" />
+  </EntityContainer>
+  <EntityType Name="Store">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Longitude" Type="Decimal" Precision="9" Scale="6" />
+    <Property Name="AddressLine1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="AddressLine2" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Area" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="ContactNo" Type="Int64" />
+    <Property Name="Latitude" Type="Decimal" Precision="9" Scale="6" />
+    <Property Name="PinCode" Type="Int64" />
+  </EntityType>
+  <EntityType Name="OrderTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="CustId" Type="Int32" />
+    <Property Name="OrderType" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="CustAddressId" Type="Int32" />
+    <Property Name="StoreId" Type="Int32" />
+    <Property Name="OrderStaus" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="PickupTime" Type="Time" Precision="7" />
+    <Property Name="DeliveryTime" Type="Time" Precision="7" />
+    <Property Name="OrderDate" Type="DateTime" Precision="0" />
+    <Property Name="OrderCost" Type="Decimal" Precision="9" Scale="6" />
+    <Property Name="OrderWt" Type="Decimal" Precision="9" Scale="6" />
+    <Property Name="PaymentMode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MachineCode" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="OrderDesc" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="EmailId" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="MobileNo" Type="Int64" />
+  </EntityType>
+  <EntityType Name="DeviceCode">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="DeviceCode1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="Active" Type="Boolean" />
+  </EntityType>
+</Schema>
