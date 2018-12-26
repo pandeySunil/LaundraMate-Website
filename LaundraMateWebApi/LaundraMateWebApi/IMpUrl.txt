@@ -1,0 +1,6 @@
+https://www.bankersadda.com/2017/08/seating-arrangement-questions-for-rrb_30.html
+http://editor.livegap.com/#fid=ayl8sgfufx661&pid=vavogec11h661
+SQL Tutorials and Practice server
+https://sqlzoo.net
+select id,name from stops JOIN route on stops.id = route.stop  where route.company = 'LRT'AND route.num = 4
+https://sqlzoo.net/wiki/SUM_and_COUNT
